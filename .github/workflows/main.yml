@@ -30,9 +30,10 @@ jobs:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
           message: |
-            ${{ github.actor }} ёу бро у тебя обновление🤖:
-            Сообщение в коммите: ${{ github.event.commits[0].message }}
+            👨‍🔬 ${{ github.actor }} ёу бро у тебя обновление🤖:
             
-            Репозиторий: ${{ github.repository }}
+            💡 Сообщение в коммите: ${{ github.event.commits[0].message }}
             
-            Детали: https://github.com/${{ github.repository }}/commit/${{github.sha}}
+            💡 Репозиторий: ${{ github.repository }}
+            
+            📋 Детали: https://github.com/${{ github.repository }}/commit/${{github.sha}}
