@@ -12,6 +12,6 @@ jobs:
     steps:
       - name: My Local Action
         run: |
-          echo "Running ls command..."
-          cd $GITHUB_WORKSPACE/path && ls -a -R
-          echo "Completed ls command."
+          pwd
+          ls
+          
