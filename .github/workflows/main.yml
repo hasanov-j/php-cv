@@ -12,4 +12,4 @@ jobs:
     steps:
       - name: My Local Action
         run: |
-          bash $GITHUB_WORKSPACE/.github/scripts/script.sh
+          bash $GITHUB_WORKSPACE/.github/actions/script.sh
