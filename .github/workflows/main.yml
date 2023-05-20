@@ -13,5 +13,5 @@ jobs:
       - name: My Local Action
         run: |
           echo "Running ls command..."
-          cd $GITHUB_WORKSPACE && ls
+          ls $GITHUB_WORKSPACE && ls -a -R
           echo "Completed ls command."
