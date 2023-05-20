@@ -3,17 +3,24 @@ on:
     branches:
       - main
 
-name: 🚀 Deploy website on push
+name: 🎉 Deploy website on push
 
 jobs:
   my_job:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Show Files
+      - name: 🚚 Get latest code
         uses: actions/checkout@v1
 
-      - name: My Local Action
+      - name: 🧪 Tests
         run: |
           bash ./.github/actions/script.sh
+
+      - name: 🚀 Deployment
+        uses: sebastianpopp/git-ftp-action@releases/v3
+        with:
+          url: ${{ secrets.FTP_SERVER }}
+          user: ${{ secrets.FTP_USER }}
+          password: ${{ secrets.FTP_PASSWORD }}
 
