@@ -6,7 +6,7 @@ $arrayCV = json_decode($data, true)['data'];
 
 if(!empty($_FILES))
 {
-    move_uploaded_file($_FILES['file']['tmp_name'], ROOT . '/' . $_FILES['file']['name']);
+    move_uploaded_file($_FILES['avatar']['tmp_name'], ROOT . '/avatar.jpg');
 }
 
 if (!empty($_POST)) {
@@ -58,7 +58,7 @@ if (!empty($_POST)) {
 
         <div id="photo">
             <label> Загрузите фото: </label>
-            <input name="avatar.jpg" type="file" value=""/>
+            <input name="avatar" type="file" />
         </div>
 
         <div class="form-group bio">
