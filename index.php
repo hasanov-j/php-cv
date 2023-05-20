@@ -8,6 +8,11 @@
     <title>Document</title>
 </head>
 <body>
-    <a href="./php-cv">PHP-CV проект</a>
+    <ul>
+        <li> <a href="./php-cv">PHP-CV проект</a></li>
+        <li> <a href="./php-cv">PHP-CV проект</a></li>
+    </ul>
+
+
 </body>
 </html>
