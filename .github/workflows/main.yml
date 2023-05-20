@@ -23,6 +23,7 @@ jobs:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USER }}
           password: ${{ secrets.FTP_PASSWORD }}
+          dangerous-clean-slate: true
 
       - name: 🤖 TelegramBot
         uses: appleboy/telegram-action@master
