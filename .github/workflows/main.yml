@@ -18,10 +18,10 @@ jobs:
           bash ./.github/actions/script.sh
 
       - name: 🚀 Deployment
-        uses: sebastianpopp/git-ftp-action@releases/v3
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
-          url: ${{ secrets.FTP_SERVER }}
-          user: ${{ secrets.FTP_USER }}
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USER }}
           password: ${{ secrets.FTP_PASSWORD }}
 
       - name: 🤖 TelegramBot
