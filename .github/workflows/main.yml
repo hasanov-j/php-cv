@@ -9,4 +9,4 @@ jobs:
     steps:
       - name: My Local Action
         run: |
-          bash ./.github/actions/my-action/script.sh
+          bash ./.github/actions/script.sh
