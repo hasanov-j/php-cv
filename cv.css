@@ -1,0 +1,85 @@
+
+
+.container
+{
+	max-width: 800px;
+	margin: auto;
+	padding-top: 30px;
+	
+}
+
+
+body 
+{
+	background-color: #f1f1f1;
+	color: #0f141e;
+	
+	font-size: 16px; /*размер шрифта*/
+	font-weight: normal; /*тольщина шрифта*/
+	font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif; /*тип шрифта*/
+	
+	/*font: normal 16px Cambria, Cochin, Georgia, Times, Times New Roman, serif;*/ /*аналогичный способ задания вышеописанных свойств одним свойством*/
+}
+.card 
+{
+	padding: 15px 20px;
+	background-color: red;
+	margin-bottom: 20px;
+	border-radius: 15px;
+}
+
+.bg-yellow 
+{
+	background: #fff9dc;
+}
+
+.bg-green 
+{
+	background: #e5ffe7;
+}
+
+.bg-red 
+{
+	background: #ffe5e5;
+}
+
+.form-group{
+	margin-bottom: 30px;
+	display: block;
+}
+
+
+.form-group label{
+	
+	display: block;
+	font-size: 14px;
+	color: gray;
+	
+}
+
+.form-group input{
+	
+	width: 100%;
+	font-size: 14px;
+	color: black;
+	border: none;
+	border-bottom: 1px solid #ccc;
+	outline: none;
+	font-family: inherit;
+	padding-bottom:5px;
+	background: transparent;
+}
+
+.form-group textarea{
+	
+	width: 100%;
+	font-size: 14px;
+	color: black;
+	border: none;
+	border-bottom: 1px solid #ccc;
+	outline: none;
+	font-family: inherit;
+	padding-bottom:5px;
+	margin-bottom: 10px;
+}
+
