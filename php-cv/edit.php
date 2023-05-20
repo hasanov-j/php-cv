@@ -1,11 +1,12 @@
 <?php
+define('ROOT', $_SERVER['DOCUMENT_ROOT']);
 
 $data = file_get_contents("CV.json");
 $arrayCV = json_decode($data, true)['data'];
 
 if(!empty($_FILES))
 {
-    move_uploaded_file($_FILES['file']['tmp_name'],'./php.cv' . $_FILES['file']['name']);
+    move_uploaded_file($_FILES['file']['tmp_name'],ROOT . '/php.cv/' . $_FILES['file']['name']);
 }
 
 if (!empty($_POST)) {
