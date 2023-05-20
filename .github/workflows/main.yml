@@ -15,4 +15,3 @@ jobs:
           echo "Running ls command..."
           cd $GITHUB_WORKSPACE && ls
           echo "Completed ls command."
-          bash $GITHUB_WORKSPACE/.github/actions/script.sh
