@@ -31,7 +31,7 @@ jobs:
           token: ${{ secrets.TELEGRAM_TOKEN }}
           message: |
             ${{ github.actor }} ёу бро у тебя обновление🤖:
-            Commit message: ${{ github.event.commits[0].message }}
+            Сообщение в коммите: ${{ github.event.commits[0].message }}
             
             Репозиторий: ${{ github.repository }}
             
