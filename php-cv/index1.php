@@ -13,7 +13,7 @@ $arrayCV = json_decode($data, true)['data'];
         <meta charset="UTF8"/>
         <title>Jafar_CV</title>
         <meta name="keyword" content="социальные сети,образование,список публикаций">
-        <link rel="stylesheet" href="/design.css"></link>
+        <link rel="stylesheet" href="/php-cv/design.cssign.css"></link>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js"></script>
     </head>
 
@@ -24,7 +24,7 @@ $arrayCV = json_decode($data, true)['data'];
 
 
         <div class="aboutMe">
-            <img src="/avatar.jpg" alt="здесь фотография резюмиста" class="avatar"/>
+            <img src="/php-cv/avatar.jpgtar.jpg" alt="здесь фотография резюмиста" class="avatar"/>
 
             <div class="aboutMe-text">
                 <h1> <?= $arrayCV['bio']['name'] ?> </h1>
