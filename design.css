@@ -1,0 +1,221 @@
+.container 
+{
+	max-width: 800px;
+	margin: auto;
+	padding-top: 30px;
+	
+}
+
+body 
+{
+	background-color: #f1f1f1;
+	color: #0f141e;
+	
+	font-size: 16px; /*размер шрифта*/
+	font-weight: normal; /*тольщина шрифта*/
+	font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif; /*тип шрифта*/
+	
+	/*font: normal 16px Cambria, Cochin, Georgia, Times, Times New Roman, serif;*/ /*аналогичный способ задания вышеописанных свойств одним свойством*/
+}
+
+a {
+	
+	color: black;
+	text-decoration: none;
+	
+}
+
+a:hover {
+	
+	text-decoration: underline ;
+	
+}
+
+a:visited {
+	
+	color: blue;
+	
+}
+
+.avatar 
+{
+	width: 200px;
+	border-radius: 25px;
+	
+}
+
+.aboutMe 
+{
+	display: flex;
+	margin-bottom: 20px;
+	
+}
+
+.aboutMe-text{
+	margin-left:20px;
+	
+}
+
+.aboutMe p
+{
+	color: #86898f;
+	font-style: italic;
+	font-weight: bold; 	
+	/*text-decoration:  underline;*/
+	/*text-transform: uppercase
+	word-spacing: 42px;*/
+}
+
+
+
+.social{
+	margin-bottom: 20px;
+	
+}
+
+/* .social
+{
+	background: yellow;
+	padding: 15px; /*внутренний отступ от границы блока*/
+	/*border: 5px solid red;*/ /*граница между паддингом и марджином (solid-сплошаная граница, dotted-. . .)*/
+	/*margin: 20px; /*внешний отступ*/
+/*}*/
+
+.card 
+{
+	padding: 15px 20px;
+	background-color: red;
+	margin-bottom: 20px;
+	border-radius: 15px;
+}
+
+.bg-yellow 
+{
+	background: #fff9dc;
+}
+
+.bg-green 
+{
+	background: #e5ffe7;
+}
+
+.bg-red 
+{
+	background: #ffe5e5;
+}
+
+.list{
+	
+	padding: 0px 17px;
+	
+	
+}
+
+.list li{
+	
+	margin-bottom: 10px;
+	color: #86898f;
+	
+}
+
+h2
+{
+	margin-bottom: 15px;
+}
+
+.table
+{
+	width: 100%;
+	/*border: 1px solid #000;*/
+}
+
+
+
+.table td{
+	
+	padding-bottom: 15px;
+}
+
+
+.table td:nth-child(2),
+.table td:nth-child(3)
+{
+	
+	color: grey;
+}
+
+
+.table th{
+	text-align:left;
+	padding-bottom: 15px;
+}
+
+.table th:nth-child(2),
+.table th:nth-child(3)
+{
+	
+	color: grey;
+}
+
+.list-publication li{
+	
+	
+	margin-bottom: 10px;
+	padding-bottom: 5px;
+	border-bottom: 1px solid #000;
+}
+
+
+
+.contact h2{
+	
+	text-align: center;
+	margin-bottom: 20px;
+	
+}
+
+
+.form-group label{
+	
+	display: block;
+	font-size: 14px;
+	color: gray;
+	
+}
+
+.form-group input{
+	
+	width: 100%;
+	font-size: 14px;
+	color: black;
+	border: none;
+	border-bottom: 1px solid #ccc;
+	outline: none;
+	font-family: inherit;
+	padding-bottom:5px;
+	background: transparent;
+}
+
+.form-group textarea{
+	
+	width: 100%;
+	font-size: 14px;
+	color: black;
+	border: none;
+	border-bottom: 1px solid #ccc;
+	outline: none;
+	font-family: inherit;
+	padding-bottom:5px;
+	margin-bottom: 10px;
+}
+.button{
+	
+
+	padding: 10px;
+	font-family: inherit;
+	cursor: pointer;
+}
+ .button:hover {
+	 
+	 opacity: 1.9;
+ }
