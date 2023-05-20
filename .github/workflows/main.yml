@@ -12,4 +12,5 @@ jobs:
     steps:
       - name: My Local Action
         run: |
-          bash $GITHUB_WORKSPACE/.github/actions/script.sh
+          echo $GITHUB_WORKSPACE
+#          bash $GITHUB_WORKSPACE/.github/actions/script.sh
