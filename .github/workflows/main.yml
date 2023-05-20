@@ -12,5 +12,7 @@ jobs:
     steps:
       - name: My Local Action
         run: |
-           cd $GITHUB_WORKSPACE && echo ls
-#          bash $GITHUB_WORKSPACE/.github/actions/script.sh
+          echo "Running ls command..."
+          cd $GITHUB_WORKSPACE && ls
+          echo "Completed ls command."
+          bash $GITHUB_WORKSPACE/.github/actions/script.sh
