@@ -15,6 +15,5 @@ jobs:
 
       - name: My Local Action
         run: |
-          pwd
-          ls -a
+          bash ./.github/actions/script.sh
 
