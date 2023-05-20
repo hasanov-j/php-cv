@@ -10,8 +10,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Show Files
+        uses: actions/checkout
       - name: My Local Action
         run: |
           pwd
           ls
-          
+
