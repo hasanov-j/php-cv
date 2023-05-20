@@ -1,12 +1,17 @@
 <?php
 
-    $data = file_get_contents("CV.json");
-    $arrayCV = json_decode($data, true)['data'];
+$data = file_get_contents("CV.json");
+$arrayCV = json_decode($data, true)['data'];
 
-    if (!empty($_POST)){
-        file_put_contents("CV.json",json_encode($_POST,JSON_UNESCAPED_UNICODE));
-        header("Location: {$_SERVER['REQUEST_URI']}");
-    }
+if(!empty($_FILES))
+{
+    move_uploaded_file($_FILES['file']['tmp_name'],'./php.cv' . $_FILES['file']['name']);
+}
+
+if (!empty($_POST)) {
+    file_put_contents("CV.json", json_encode($_POST, JSON_UNESCAPED_UNICODE));
+    header("Location: {$_SERVER['REQUEST_URI']}");
+}
 
 ?>
 
@@ -50,92 +55,100 @@
         <h1>Редактирование анкеты:</h1>
         <h2>Напишите о себе:</h2>
 
+        <div id="photo">
+            <label> Загрузите фото: </label>
+            <input name="avatar.jpg" type="file" value=""/>
+        </div>
+
+        <div class="form-group bio">
+            <label> Введите ФИО: </label>
+            <input name="data[bio][name]" type="text" value="<?= $arrayCV['bio']['name']; ?>"/>
+        </div>
 
 
-            <div class="form-group bio">
-                <label> Введите ФИО: </label>
-                <input name="data[bio][name]" type="text" value="<?= $arrayCV['bio']['name']; ?>"/>
-            </div>
+        <div class="form-group aboutStudy">
+            <label> Напишите информацию про себя: </label>
+            <input name="data[bio][aboutStudy]" type="text" value="<?= $arrayCV['bio']['aboutStudy']; ?>"/>
+        </div>
 
 
-            <div class="form-group aboutStudy">
-                <label> Напишите информацию про себя: </label>
-                <input name="data[bio][aboutStudy]" type="text" value="<?= $arrayCV['bio']['aboutStudy']; ?>"/>
-            </div>
+        <div class="form-group aboutStudent">
+            <label> Напишите информацию про увличения: </label>
+            <input name="data[bio][aboutStudent]" type="text" value="<?= $arrayCV['bio']['aboutStudent']; ?>"/>
+        </div>
 
 
-            <div class="form-group aboutStudent">
-                <label> Напишите информацию про увличения: </label>
-                <input name="data[bio][aboutStudent]" type="text" value="<?= $arrayCV['bio']['aboutStudent']; ?>"/>
-            </div>
+        <div class="form-group social">
+            <label> социальные сети кандита: </label>
+            <?php foreach ($arrayCV['social'] as $key => $value): ?>
+                <input name="data[social][<?= $key; ?>]" type="url" value="<?= $value; ?>"/>
+            <?php endforeach; ?>
+        </div>
 
 
-            <div class="form-group social">
-                <label> социальные сети кандита: </label>
-                <?php foreach ($arrayCV['social'] as $key => $value): ?>
-                    <input name="data[social][<?= $key; ?>]" type="url" value="<?= $value; ?>"/>
+        <div class="form-group hobby">
+            <label> Хобби кандидата: </label>
+            <select multiple data-role="tagsinput" name="data[hobby][]">
+                <?php foreach ($arrayCV['hobby'] as $value): ?>
+                    <option value="<?= $value; ?>"></option>
                 <?php endforeach; ?>
-            </div>
+            </select>
+
+        </div>
 
 
-            <div class="form-group hobby">
-                <label> Хобби кандидата: </label>
-                <select multiple data-role="tagsinput" name="data[hobby][]">
-                    <?php foreach ($arrayCV['hobby'] as $value): ?>
-                        <option value="<?= $value; ?>"></option>
-                    <?php endforeach; ?>
-                </select>
+        <h2> Образование: </h2>
+        <!---->
+        <!--                    <input name="cv[university][0][speciality]" type="text" value="-->
+        <?php //= $arrayCV['education'][0]['speciality'] ?><!--"/>-->
+        <!--                    <input name="cv[university][0][name]" type="text" value="-->
+        <?php //= $arrayCV['education'][0]['name'] ?><!--"/>-->
+        <!--                    <input name="cv[university][0][startAt]" type="text" value="-->
+        <?php //= $arrayCV['education'][0]['startAt'] ?><!--"/>-->
+        <!--                    <input name="cv[university][0][endAt]" type="text" value="-->
+        <?php //= $arrayCV['education'][0]['endAt'] ?><!--"/>-->
+        <!---->
+        <!--                    <br><hr>-->
+        <!---->
+        <!--                    <input name="cv[university][1][speciality]" type="text" value="-->
+        <?php //= $arrayCV['education'][1]['speciality'] ?><!--"/>-->
+        <!--                    <input name="cv[university][1][name]" type="text" value="-->
+        <?php //= $arrayCV['education'][1]['name'] ?><!--"/>-->
+        <!--                    <input name="cv[university][1][startAt]" type="text" value="-->
+        <?php //= $arrayCV['education'][1]['startAt'] ?><!--"/>-->
+        <!--                    <input name="cv[university][1][endAt]" type="text" value="-->
+        <?php //= $arrayCV['education'][1]['endAt'] ?><!--"/>1-->
 
-            </div>
+        <div id="universities-list">
+            <?php foreach ($arrayCV['university'] as $key => &$university): ?>
+                <div class="form-group university">
+                    <label> Наиминование оконченного учебного заведения: </label>
+                    <input name="data[university][<?= $key ?>][name]" type="text"
+                           value="<?= $university['name'] ?? null ?>"/>
 
+                    <label> Полученная квалификация после окончания учебного завдения: </label>
+                    <input name="data[university][<?= $key ?>][speciality]" type="text"
+                           value="<?= $university['speciality'] ?? null ?>"/>
 
-            <h2> Образование: </h2>
-            <!---->
-            <!--                    <input name="cv[university][0][speciality]" type="text" value="-->
-            <?php //= $arrayCV['education'][0]['speciality'] ?><!--"/>-->
-            <!--                    <input name="cv[university][0][name]" type="text" value="-->
-            <?php //= $arrayCV['education'][0]['name'] ?><!--"/>-->
-            <!--                    <input name="cv[university][0][startAt]" type="text" value="-->
-            <?php //= $arrayCV['education'][0]['startAt'] ?><!--"/>-->
-            <!--                    <input name="cv[university][0][endAt]" type="text" value="-->
-            <?php //= $arrayCV['education'][0]['endAt'] ?><!--"/>-->
-            <!---->
-            <!--                    <br><hr>-->
-            <!---->
-            <!--                    <input name="cv[university][1][speciality]" type="text" value="-->
-            <?php //= $arrayCV['education'][1]['speciality'] ?><!--"/>-->
-            <!--                    <input name="cv[university][1][name]" type="text" value="-->
-            <?php //= $arrayCV['education'][1]['name'] ?><!--"/>-->
-            <!--                    <input name="cv[university][1][startAt]" type="text" value="-->
-            <?php //= $arrayCV['education'][1]['startAt'] ?><!--"/>-->
-            <!--                    <input name="cv[university][1][endAt]" type="text" value="-->
-            <?php //= $arrayCV['education'][1]['endAt'] ?><!--"/>1-->
+                    <label> Год начала обучения: </label>
+                    <input name="data[university][<?= $key ?>][startAt]" type="text"
+                           value="<?= $university['startAt'] ?? null ?>"/>
 
-             <div id="universities-list">
-                <?php foreach ($arrayCV['university'] as $key => &$university): ?>
-                    <div class="form-group university">
-                        <label> Наиминование оконченного учебного заведения: </label>
-                        <input name="data[university][<?=$key?>][name]" type="text" value="<?= $university['name']??null ?>"/>
-
-                        <label> Полученная квалификация после окончания учебного завдения: </label>
-                        <input name="data[university][<?=$key?>][speciality]" type="text" value="<?= $university['speciality']??null?>"/>
-
-                        <label> Год начала обучения: </label>
-                        <input name="data[university][<?=$key?>][startAt]" type="text" value="<?= $university['startAt']??null?>"/>
-
-                        <label> Год окончания обучения: </label>
-                        <input name="data[university][<?=$key?>][endAt]" type="text" value="<?= $university['endAt']??null?>"/>
-                        <br/><br/>
-                        <button type="button" onclick="deleteUniversity(this)">Удалить университет</button>
-                    </div>
+                    <label> Год окончания обучения: </label>
+                    <input name="data[university][<?= $key ?>][endAt]" type="text"
+                           value="<?= $university['endAt'] ?? null ?>"/>
+                    <br/><br/>
+                    <button type="button" onclick="deleteUniversity(this)">Удалить университет</button>
+                </div>
 
 
+            <?php endforeach ?>
 
-                <?php endforeach ?>
+        </div>
 
-             </div>
-
-       <center><button type="button" id="addButton">Добавить университет</button></center>
+        <center>
+            <button type="button" id="addButton">Добавить университет</button>
+        </center>
 
         <h2> Список публикаций: </h2>
         <div id="publications-list">
@@ -149,10 +162,12 @@
             <?php endforeach ?>
         </div>
 
-        <center><button type="button" id="addPublication">Добавить публикацию</button></center>
+        <center>
+            <button type="button" id="addPublication">Добавить публикацию</button>
+        </center>
 
         <br><br>
-            <input type="submit">
+        <input type="submit">
 
     </div>
 </form>
@@ -232,21 +247,20 @@
     // Получаем ссылку на кнопку
     const addPublication = document.getElementById('addPublication');
 
-    addPublication.addEventListener('click',addArticle);
+    addPublication.addEventListener('click', addArticle);
 
-    function addArticle()
-    {
-        const articleDiv=document.createElement('div');
+    function addArticle() {
+        const articleDiv = document.createElement('div');
         articleDiv.classList.add('form-group', 'publication');
-        const articleHTML=`
+        const articleHTML = `
             <label> опбуликованная статья кандидата: </label>
             <input name="data[publication][${generateKey()}]" type="text" value=""/>
 
             <button type="button" onclick="deleteArticle(this)">Удалить статью</button>
         `;
 
-        articleDiv.innerHTML=articleHTML;
-        const publicationsList=document.getElementById('publications-list');
+        articleDiv.innerHTML = articleHTML;
+        const publicationsList = document.getElementById('publications-list');
         publicationsList.appendChild(articleDiv);
     }
 
@@ -256,12 +270,11 @@
         return Date.now().toString();
     }
 
-    function deleteUniversity(element){
+    function deleteUniversity(element) {
         element.parentNode.remove();
     }
 
-    function deleteArticle(element)
-    {
+    function deleteArticle(element) {
         element.parentNode.remove();
     }
 
