@@ -7,7 +7,9 @@ $arrayCV = json_decode($data, true)['data'];
 
 if(!empty($_FILES))
 {
-    move_uploaded_file($_FILES['avatar']['tmp_name'], ROOT . '/avatar.jpg');
+    if(!move_uploaded_file($_FILES['avatar']['tmp_name'], ROOT . '/cv/avatar.jpg')){
+        var_dump('оШИБКА ЗАГРУЗКИ ФАЙЛА');
+    }
 }
 
 if (!empty($_POST)) {
