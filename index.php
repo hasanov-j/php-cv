@@ -9,8 +9,8 @@
 </head>
 <body>
     <ul>
-        <li> <a href="./cv">PHP-CV проект</a></li>
-        <li> <a href="./cv">PHP-CV проект</a></li>
+        <li> <a href="./cv/auth/login">PHP-CV проект</a></li>
+
     </ul>
 </body>
 </html>

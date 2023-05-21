@@ -32,7 +32,7 @@ function authCheck()
         return getUserdata($_COOKIE['username'], $_SESSION['password']);
     } else {
         header("Location: " . AUTH_LOGIN);
-        exit();
+
     }
 }
 
@@ -48,7 +48,16 @@ function userDataCheck($username, $password): bool
     }
     return false;
 }
+function isAdmin($username, $password): bool
+{
+    $user=getUserData($username, $password);
+    if($user!=null && $user['role']==='admin')
+    {
+        return true;
 
+    }
+    else return false;
+}
 function getUserData($username, $password): null|array
 {
     //проверять если ли данные в нашей бд
