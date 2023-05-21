@@ -1,7 +1,13 @@
 <?php
+session_start();
 
 $data = file_get_contents("CV.json");
 $arrayCV = json_decode($data, true)['data'];
+
+include 'functions.php';
+
+
+$user = authCheck();
 
 ?>
 

@@ -1,3 +1,11 @@
+<?php
+
+
+
+
+
+?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -8,9 +16,11 @@
     <title>Document</title>
 </head>
 <body>
-    <ul>
-        <li> <a href="./cv">PHP-CV проект</a></li>
-        <li> <a href="./cv">PHP-CV проект</a></li>
-    </ul>
+
+    <h1>401 - Доступ запрещен</h1>
+
+
+
+
 </body>
 </html>

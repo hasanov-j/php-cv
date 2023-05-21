@@ -2,7 +2,7 @@
 define('ROOT', $_SERVER['DOCUMENT_ROOT']);
 
 $data = file_get_contents("CV.json");
-$arrayCV = json_decode($data, true)['data'];
+$arrayCV = json_decode($data, true)['auth'];
 
 if(!empty($_FILES))
 {
