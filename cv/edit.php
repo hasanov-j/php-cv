@@ -1,8 +1,9 @@
 <?php
-define('ROOT', $_SERVER['DOCUMENT_ROOT']);
+
+include $_SERVER['DOCUMENT_ROOT'] . '/cv/functions.php';
 
 $data = file_get_contents("CV.json");
-$arrayCV = json_decode($data, true)['auth'];
+$arrayCV = json_decode($data, true)['data'];
 
 if(!empty($_FILES))
 {
@@ -13,6 +14,13 @@ if (!empty($_POST)) {
     file_put_contents("CV.json", json_encode($_POST, JSON_UNESCAPED_UNICODE));
     header("Location: {$_SERVER['REQUEST_URI']}");
 }
+
+if(!accessChecker('editCv')){
+   header("HTTP/1.1 403 Permission denied");
+    header(sprintf("Location: %s",error403));
+}
+
+
 
 ?>
 

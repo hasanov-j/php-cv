@@ -20,6 +20,19 @@ body
 	
 	/*font: normal 16px Cambria, Cochin, Georgia, Times, Times New Roman, serif;*/ /*аналогичный способ задания вышеописанных свойств одним свойством*/
 }
+
+#{
+	top: 10px;
+	right: 10px;
+	z-index: 9999;
+}
+
+#exit #logout{
+	top: 10px;
+	right: 10px;
+	z-index: 9999;
+}
+
 .card 
 {
 	padding: 15px 20px;

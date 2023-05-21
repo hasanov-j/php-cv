@@ -18,6 +18,11 @@ body
 	/*font: normal 16px Cambria, Cochin, Georgia, Times, Times New Roman, serif;*/ /*аналогичный способ задания вышеописанных свойств одним свойством*/
 }
 
+
+.exit{
+	float: right;
+}
+
 a {
 	
 	color: black;

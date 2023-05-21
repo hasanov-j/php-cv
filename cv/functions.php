@@ -5,7 +5,9 @@ define('HOST', $_SERVER['HTTP_HOST']);
 define('PROJECT_ROOT', '/cv');
 define('AUTH_LOGIN', PROJECT_ROOT . '/auth/login');
 define('error401', PROJECT_ROOT . '/error401.php');
-
+define('error403', PROJECT_ROOT . '/error403.php');
+define('AUTH_LOGOUT', PROJECT_ROOT . '/auth/logout/index.php');
+define('EDIT_CV', PROJECT_ROOT . '/edit.php');
 
 function auth($username, $password)
 {
@@ -56,6 +58,7 @@ function isAdmin($username, $password): bool
         return true;
 
     }
+
     else return false;
 }
 function getUserData($username, $password): null|array
@@ -75,12 +78,49 @@ function getUserData($username, $password): null|array
 function isAuth()
 {
     if( array_key_exists('password', $_SESSION) &&
-        array_key_exists('username', $_COOKIE) &&
-        userDataCheck($_COOKIE['username'], $_SESSION['password'])
+        array_key_exists('username', $_COOKIE)
     ){
         return true;
     }
     else{
         return false;
     }
+}
+
+function getAuthUser()
+{
+    if(isAuth() && userDataCheck($_COOKIE['username'], $_SESSION['password'])){
+        return  getUserData($_COOKIE['username'], $_SESSION['password']);
+    }else{
+        return null;
+    }
+}
+
+
+
+
+/**
+ * @param $role
+ * @param $contentName - Раздел сайта из конфигов $accessSettings
+ * @return bool
+ */
+function accessChecker($contentName)
+{
+    authCheck();
+
+    $accessSettings = [
+        'avatar' => [
+            'admin',
+            'user',
+        ],
+        'fio' => [
+            'admin',
+            'user'
+        ],
+        'editCv'=>[
+            'admin',
+        ]
+    ];
+
+    return in_array(getAuthUser()['role'], $accessSettings[$contentName]);
 }

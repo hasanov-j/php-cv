@@ -4,10 +4,10 @@ session_start();
 $data = file_get_contents("CV.json");
 $arrayCV = json_decode($data, true)['data'];
 
-include 'functions.php';
-
+include $_SERVER['DOCUMENT_ROOT'] . '/cv/functions.php';
 
 $user = authCheck();
+
 
 ?>
 
@@ -25,15 +25,39 @@ $user = authCheck();
 
 
     <body>
+    <div>
+
+        <?php if(isAuth()):?>
+        <h2>Привет <?=getAuthUser()['username']?></h2>
+
+        <form method="post" action="<?=AUTH_LOGOUT?>">
+            <input id="logout" name="logout" type="submit" value="Выход">
+        </form>
+        <?php endif;?>
+
+
+        <?php if(accessChecker('editCv')): ?>
+            <a href="<?=EDIT_CV?>"><button  type="button">Редактировать</button></a>
+        <?php endif;?>
+
+    </div>
+
 
     <div class="container">
+
+
 
 
         <div class="aboutMe">
             <img src="./avatar.jpg" alt="здесь фотография резюмиста" class="avatar"/>
 
+
             <div class="aboutMe-text">
+                <?php if(accessChecker( 'fio')): ?>
                 <h1> <?= $arrayCV['bio']['name'] ?> </h1>
+                <?php endif;?>
+
+
                 <p> <?= $arrayCV['bio']['aboutStudy'] ?> </p>
                 <p> <?= $arrayCV['bio']['aboutStudent'] ?> </p>
 
