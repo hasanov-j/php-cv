@@ -61,7 +61,7 @@ function isAdmin($username, $password): bool
 
     else return false;
 }
-function getUserData($username, $password): null|array
+function getUserData($username, $password)
 {
     //проверять если ли данные в нашей бд
     $users = json_decode(file_get_contents(ROOT . '/cv/auth/users.json'), true);
