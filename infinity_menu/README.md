@@ -4,42 +4,145 @@
 
 
 ```php
-function infinityMenu(array $menu)
-{
-    foreach($menu as $key => $value)
-    {
-        if($key=='parent_ID' && $value!=null)
-        {
-            infinityMenu($value);
-        }
-        elseif (!is_array($value) && $value!=null)
-        {
-            echo $key . "=>" . $value . "<br>";
-        }
-    }
-}
+//исходные данные
+$menu_2 =[
+    [
+        'id' => 1,
+        'title' => 'Автомобили',
+        'description' => "Автотранспорт",
+        'parentId' => null
+    ],
+    [
+        'id' => 2,
+        'title' => 'Легковые автомобили',
+        'description' => 'Легкий транспорт',
+        'parentId' => 1,
 
-//Массив из меню:
-$menu_1 =
+    ],
     [
-        'title' => 'list-1',
-        'description' => 'aboutList-1',
-        'parent_ID' => null
-    ];
-$menu_2 =
-    [
-        'title' => 'list-2',
-        'description' => 'aboutList-2',
-        'parent_ID' => $menu_1,
-
-    ];
-$menu_3 =
-    [
-        'title' => 'list-3',
+        'id' => 3,
+        'title' => 'Грузовые автомобили',
         'description' => 'aboutList-3',
-        'parent_ID' => $menu_2,
+        'parentId' => 1,
+    ],
+    [
+        'id' => 4,
+        'title' => 'Эксколаторы',
+        'description' => 'aboutList-3',
+        'parentId' => 3,
+    ],
+    [
+        'id' => 5,
+        'title' => 'Машины с краном',
+        'description' => 'aboutList-3',
+        'parentId' => 3,
+    ],
+    [
+        'id' => 6,
+        'title' => 'Детские игрушки',
+        'description' => 'aboutList-3',
+        'parentId' => null,
+    ],
+    [
+        'id' => 6,
+        'title' => 'Стройматериалы',
+        'description' => 'aboutList-3',
+        'parentId' => null,
+    ],
+    [
+        'id' => 7,
+        'title' => 'Двери',
+        'description' => 'aboutList-3',
+        'parentId' => 6,
+    ],
+    [
+        'id' => 8,
+        'title' => 'Двери для кухни',
+        'description' => 'aboutList-3',
+        'parentId' => 7,
+    ],
+    [
+        'id' => 9,
+        'title' => 'Двери входные',
+        'description' => 'aboutList-3',
+        'parentId' => 7,
+    ]
+];
 
-    ];
 
-infinityMenu($menu_3);
+//ожидание данные
+
+
+$result = [
+    [
+        'id' => 1,
+        'title' => 'Автомобили',
+        'description' => "Автотранспорт",
+        'parentId' => null,
+        'childs' => [
+            [
+                'id' => 2,
+                'title' => 'Легковые автомобили',
+                'description' => 'Легкий транспорт',
+                'parentId' => 1,
+
+            ],
+            [
+                'id' => 3,
+                'title' => 'Грузовые автомобили',
+                'description' => 'aboutList-3',
+                'parentId' => 1,
+                'childs' => [
+                    [
+                        'id' => 4,
+                        'title' => 'Эксколаторы',
+                        'description' => 'aboutList-3',
+                        'parentId' => 3,
+                    ],
+                    [
+                        'id' => 5,
+                        'title' => 'Машины с краном',
+                        'description' => 'aboutList-3',
+                        'parentId' => 3,
+                    ],
+                ]
+            ],
+        ],
+        [
+            'id' => 6,
+            'title' => 'Детские игрушки',
+            'description' => 'aboutList-3',
+            'parentId' => null,
+        ],
+        [
+            'id' => 6,
+            'title' => 'Стройматериалы',
+            'description' => 'aboutList-3',
+            'parentId' => null,
+            'childs' => [
+                [
+                    'id' => 7,
+                    'title' => 'Двери',
+                    'description' => 'aboutList-3',
+                    'parentId' => 6,
+                    'childs' => [
+                        [
+                            'id' => 8,
+                            'title' => 'Двери для кухни',
+                            'description' => 'aboutList-3',
+                            'parentId' => 7,
+                        ],
+                        [
+                            'id' => 9,
+                            'title' => 'Двери входные',
+                            'description' => 'aboutList-3',
+                            'parentId' => 7,
+                        ],
+                    ],
+                ],
+            ]
+        ],
+    ],
+];
+
 ```
