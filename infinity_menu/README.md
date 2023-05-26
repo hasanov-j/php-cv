@@ -19,7 +19,7 @@ function infinityMenu(array $menu)
     }
 }
 
-Массив из меню:
+//Массив из меню:
 $menu_1 =
     [
         'title' => 'list-1',
