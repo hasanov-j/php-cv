@@ -27,7 +27,7 @@ if(!empty($_POST['message']))
     fwrite($file,$_POST['message'] . PHP_EOL);  
     fclose($file);  
 }  
-Производится считывание данных из файла:    
+//Производится считывание данных из файла:    
 $strMessage=file_get_contents($fileName);  
 $arrayMessage=explode(PHP_EOL,$strMessage);  
   
