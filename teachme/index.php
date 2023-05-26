@@ -8,12 +8,10 @@
     <title>Document</title>
 </head>
 <body>
-    <ul>
-
-        <li> <a href="./file">file проект</a></li>
-		<li> <a href="./recursion">recursion проект</a></li>
-		<li> <a href="./array">array проект</a></li>
-
-    </ul>
+<ul>
+    <li> <a href="./file">file проект</a></li>
+    <li> <a href="./recursion">recursion проект</a></li>
+    <li> <a href="./array">array проект</a></li>
+</ul>
 </body>
 </html>
