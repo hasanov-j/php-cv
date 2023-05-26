@@ -8,13 +8,15 @@ $arrayCV = json_decode($data, true)['data'];
 if(!empty($_FILES))
 {
     if(!move_uploaded_file($_FILES['avatar']['tmp_name'], ROOT . '/cv/avatar.jpg')){
-        var_dump('оШИБКА ЗАГРУЗКИ ФАЙЛА');
+        var_dump('ОШИБКА ЗАГРУЗКИ ФАЙЛА');
     }
 }
 
 if (!empty($_POST)) {
     file_put_contents("CV.json", json_encode($_POST, JSON_UNESCAPED_UNICODE));
+    header("Cache-Control: no-cache");
     header("Location: {$_SERVER['REQUEST_URI']}");
+
 }
 
 if(!accessChecker('editCv')){

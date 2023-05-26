@@ -9,9 +9,9 @@
 </head>
 <body>
     <ul>
-        <li> <a href="cv/auth/login">PHP-CV проект</a></li>
-		<li> <a href="teachmeskill">teachmeskill проект</a></li>
-        <li> <a href="infinity_menu">infimity_menu проект</a></li>
+        <li> <a href="./file">file проект</a></li>
+		<li> <a href="./recursion">recursion проект</a></li>
+		<li> <a href="./array">array проект</a></li>
     </ul>
 </body>
 </html>

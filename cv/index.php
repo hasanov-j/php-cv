@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+header("Cache-Control: no-cache");
 $data = file_get_contents("CV.json");
 $arrayCV = json_decode($data, true)['data'];
 
@@ -49,7 +49,7 @@ $user = authCheck();
 
 
         <div class="aboutMe">
-            <img src="./avatar.jpg" alt="здесь фотография резюмиста" class="avatar"/>
+            <img src="./avatar.jpg?<?=time(); ?>" alt="здесь фотография резюмиста" class="avatar"/>
 
 
             <div class="aboutMe-text">
