@@ -62,10 +62,6 @@ function DeleteKeysInArrays(array  &$people, array $deleteKeys)
 //    return $data;  
 //}  
   
-   
-
-  
-  
 $deleteKeys=['fhfbhb','qrssdqe','oioilooi'];  
   
 $people=[  
