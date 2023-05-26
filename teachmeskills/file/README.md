@@ -17,6 +17,9 @@ $fileName="message.txt";
 ```
 
 Производится запись в данных с помощью массива $_POST файл:  
+
+
+```php
 if(!empty($_POST['message']))  
   
 {  
@@ -29,8 +32,9 @@ $strMessage=file_get_contents($fileName);
 $arrayMessage=explode(PHP_EOL,$strMessage);  
   
 ?>  
+```
 
-
+```html
 <!doctype html>  
 <html>  
 <head>  
@@ -68,3 +72,4 @@ $arrayMessage=explode(PHP_EOL,$strMessage);
   
 </body>  
 </html>  
+```
