@@ -1,9 +1,9 @@
-<?php
-
 Рекурсионная функция для определения родителя:
 Передаем в функцию параметром массив "menu" ребенка,
 получаем его родителя с помощью рекурсии
 
+
+```php
 function infinityMenu(array $menu)
 {
     foreach($menu as $key => $value)
@@ -42,3 +42,4 @@ $menu_3 =
     ];
 
 infinityMenu($menu_3);
+```
