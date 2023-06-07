@@ -1,5 +1,8 @@
 #Удаление данных в массиве с помощью рекурсинной функции.
 Удаление происхрдит с помощью использования ключей массивов которые нужно удалить
+
+
+```php
 <?php
   
 function DeleteKey(array  &$people, array $deleteKeys)  
@@ -59,10 +62,6 @@ function DeleteKeysInArrays(array  &$people, array $deleteKeys)
 //    return $data;  
 //}  
   
-   
-
-  
-  
 $deleteKeys=['fhfbhb','qrssdqe','oioilooi'];  
   
 $people=[  
@@ -102,3 +101,4 @@ var_dump(DeleteKeysInArrays($people,$deleteKeys));
 //var_dump($result); die;  
 
 ?>
+```

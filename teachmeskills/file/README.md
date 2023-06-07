@@ -1,17 +1,25 @@
+```php
 <?php
-//echo __FILE__ . "<br>";
-//echo __DIR__ . "<br>";
-//echo $_SERVER['DOCUMENT_ROOT'] . "<br>";
-#Работа с файлами
+echo __FILE__ . "<br>";
+echo __DIR__ . "<br>";
+echo $_SERVER['DOCUMENT_ROOT'] . "<br>";
+```
+
+# Работа с файлами
 *принмает текстувую инфу с формы (textarea)
 *заносит содержимое в текстовый файл в новую
 строку (добавляет не удаляя существущие данные с файла)
 *считываются данные с файла
 *выводит содержимое на экран под формой ввода  
 
+```php
 $fileName="message.txt";  
-  
+```
+
 Производится запись в данных с помощью массива $_POST файл:  
+
+
+```php
 if(!empty($_POST['message']))  
   
 {  
@@ -19,13 +27,14 @@ if(!empty($_POST['message']))
     fwrite($file,$_POST['message'] . PHP_EOL);  
     fclose($file);  
 }  
-Производится считывание данных из файла:    
+//Производится считывание данных из файла:    
 $strMessage=file_get_contents($fileName);  
 $arrayMessage=explode(PHP_EOL,$strMessage);  
   
 ?>  
+```
 
-
+```html
 <!doctype html>  
 <html>  
 <head>  
@@ -63,3 +72,4 @@ $arrayMessage=explode(PHP_EOL,$strMessage);
   
 </body>  
 </html>  
+```
