@@ -1,21 +1,21 @@
 <?php
-function infinityMenu(array $menu)
+function infinityMenu(array &$menu, $parentId = null)
 {
-    foreach($menu as $key => $value)
+    $result = [];
+
+    foreach ($menu as $menuNumberCount => &$menuItem)
     {
-        if($key=='parent_ID' && $value!=null)
-        {
-            infinityMenu($value);
-        }
-        elseif (!is_array($value) && $value!=null)
-        {
-            echo $key . "=>" . $value . "<br>";
+        if ($menuItem['parentId'] == $parentId) {
+            $menuItem['childs'] = infinityMenu($menu, $menuItem['id']);
+            $result[] = $menuItem;
         }
     }
+
+    return $result;
 }
 
 //исходные данные
-$menu_2 =[
+$menu =[
     [
         'id' => 1,
         'title' => 'Автомобили',
@@ -54,28 +54,28 @@ $menu_2 =[
         'parentId' => null,
     ],
     [
-        'id' => 6,
+        'id' => 7,
         'title' => 'Стройматериалы',
         'description' => 'aboutList-3',
         'parentId' => null,
     ],
     [
-        'id' => 7,
-        'title' => 'Двери',
-        'description' => 'aboutList-3',
-        'parentId' => 6,
-    ],
-    [
         'id' => 8,
-        'title' => 'Двери для кухни',
+        'title' => 'Двери',
         'description' => 'aboutList-3',
         'parentId' => 7,
     ],
     [
         'id' => 9,
+        'title' => 'Двери для кухни',
+        'description' => 'aboutList-3',
+        'parentId' => 8,
+    ],
+    [
+        'id' => 10,
         'title' => 'Двери входные',
         'description' => 'aboutList-3',
-        'parentId' => 7,
+        'parentId' => 8,
     ]
 ];
 
@@ -125,28 +125,28 @@ $result = [
             'parentId' => null,
         ],
         [
-            'id' => 6,
+            'id' => 7,
             'title' => 'Стройматериалы',
             'description' => 'aboutList-3',
             'parentId' => null,
             'childs' => [
                 [
-                    'id' => 7,
+                    'id' => 8,
                     'title' => 'Двери',
                     'description' => 'aboutList-3',
-                    'parentId' => 6,
+                    'parentId' => 7,
                     'childs' => [
                         [
-                            'id' => 8,
+                            'id' => 9,
                             'title' => 'Двери для кухни',
                             'description' => 'aboutList-3',
-                            'parentId' => 7,
+                            'parentId' => 8,
                         ],
                         [
-                            'id' => 9,
+                            'id' => 10,
                             'title' => 'Двери входные',
                             'description' => 'aboutList-3',
-                            'parentId' => 7,
+                            'parentId' => 8,
                         ],
                     ],
                 ],
@@ -156,4 +156,4 @@ $result = [
 ];
 
 
-//infinityMenu($menu_3);
+var_dump(infinityMenu($menu));
